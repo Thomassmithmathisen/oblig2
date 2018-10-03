@@ -1,0 +1,99 @@
+/* CSS-stilark for artikkelsider */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%; max-width: 1400px;
+}
+
+header {
+    grid-area: header;
+    background-image: url(bilder/header.jpg);
+    border: 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 40px;
+}
+
+/* Navigasjonsmeny: */
+nav {
+    
+}
+/* Det jeg setter på disse li-ene, arver også li-ene i dropdown-menyen. */
+nav ul li{
+    display: inline-block;
+    position: relative;
+    margin-right: 1em;
+    /* Runde hjørner (border-radius): */
+    border-radius: 10px;
+    background-color: floralwhite;
+    padding: 10px;
+}
+/* Når hovrer over linkene i menyen: */
+nav ul li:hover {
+    background-color: antiquewhite;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+/* Drop-down-meny: */
+.dropdown { 
+    display: none;
+}
+/* Når hovrer over linken til dropdown-innholdet: 
+* Husk at li-ene her arver egenskapene som jeg satte på li-ene over. */
+nav ul li:hover ul{
+    display: block;
+    position: absolute;
+    /* Posisjonering i forhold til foreldreelementet: */
+    top: 38px;
+    left: -40px;
+}
+nav ul li ul li{
+	display: block;
+    position: relative;
+}
+
+/* Hovedområdet: */
+main {
+    width: 100%;
+}
+/* Artikkel (med flex): */
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+article figure {
+    width: 100%;
+}
+
+.ingress {
+    font-style: italic;
+    font-size: 20px;
+    color: darkcyan;
+}
+
+/* Footer: */
+footer {
+    grid-area: footer;
+    background-image: url(bilder/header.jpg);
+    border: 1px solid;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex: none;
+}
+
+footer p {
+    margin-right: 20px;
+}
+
+footer a {
+    line-height: 50px;
+}
+

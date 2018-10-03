@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%; max-width: 1400px;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 140px auto auto 50px;
+    /* I @media-stilinga, er det seksjonene jeg må gjøre om på. */
+    grid-template-areas:
+        "header header header"
+        "main main aside"
+        "main main aside"
+        "footer footer footer";
+}
+
+header {
+    grid-area: header;
+    background-image: url(bilder/header.jpg);
+    border: 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 40px;
+}
+
+/* Navigasjonsmeny: */
+nav {
+    
+}
+/* Det jeg setter på disse li-ene, arver også li-ene i dropdown-menyen. */
+nav ul li{
+    display: inline-block;
+    position: relative;
+    margin-right: 1em;
+    /* Runde hjørner (border-radius): */
+    border-radius: 10px;
+    background-color: floralwhite;
+    padding: 10px;
+}
+/* Når hovrer over linkene i menyen: */
+nav ul li:hover {
+    background-color: antiquewhite;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+/* Drop-down-meny: */
+.dropdown { 
+    display: none;
+}
+/* Når hovrer over linken til dropdown-innholdet: 
+* Husk at li-ene her arver egenskapene som jeg satte på li-ene over. */
+nav ul li:hover ul{
+    display: block;
+    position: absolute;
+    /* Posisjonering i forhold til foreldreelementet: */
+    top: 38px;
+    left: -40px;
+}
+nav ul li ul li{
+	display: block;
+    position: relative;
+}
+
+/* Hovedområdet: */
+main {
+    grid-area: main;
+    /* Stile som foreldreelement til artiklene i main: */
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; Ikke nødvendig, siden jeg gjorde om til column. */
+}
+/* Husk å stile barne-elementene (artiklene) også! */
+article {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(4 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "header header figure figure"
+        "description description figure figure"
+        "link link figure figure";
+    border-style: solid;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+/* Setter ut elementene i sine grid-områder: */
+h2 {
+    grid-area: header;
+}
+
+p {
+    grid-area: description;
+}
+
+a {
+    grid-area: link;
+}
+
+figure {
+    grid-area: figure;
+    max-width: 100%;
+}
+
+article:last-of-type {
+    margin-bottom: 0px;
+}
+/* Aside, bruk flex: */
+aside {
+    grid-area: aside;
+    /* Som main: Husk å stile både aside (forelder) og seksjoner (barn)! */
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    /* Jeg regner med at jeg stiler alle seksjonene likt. Husk på at barn til aside! */
+    border-style: solid;
+    margin-bottom: 20px;
+}
+
+section:last-of-type {
+    border-style: solid;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.iframe {
+    max-width: 100%;
+}
+
+.knapp {
+    background-color: green;
+    border-radius: 10px;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+
+.knapp:hover {
+    background-color: lightgreen;
+    border-radius: 10px;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+
+.knapplink {
+    color: white;
+    text-decoration: none;
+}
+
+footer {
+    grid-area: footer;
+    background-image: url(bilder/header.jpg);
+    border: 1px solid;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex: none;
+}
+
+footer p {
+    margin-right: 20px;
+}
+
+footer a {
+    line-height: 50px;
+}
+
